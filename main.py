@@ -1,11 +1,17 @@
 # -*- coding: utf-8 -*-
 import pandas as pd
+from datetime import date
+import requests
 
 xl = pd.ExcelFile("fatura.xlsx")
 df = xl.parse("xml")
 
 xml = ''
 for i in df.index:
+    bill_date = df['Fatura Tarihi'][i].replace(".", "-")  
+    dolarUrl = f"https://evds2.tcmb.gov.tr/service/evds/series=TP.DK.USD.A&startDate={bill_date}&endDate={bill_date}&type=json&key=fTXaeHOQKW"
+    dolar = requests.get(dolarUrl).json()['items'][0]['TP_DK_USD_A']
+
     xml += f"""  <INVOICE DBOP="INS" >
     <TYPE>9</TYPE>
     <NUMBER></NUMBER>
@@ -24,19 +30,19 @@ for i in df.index:
     <TOTAL_NET>{df['Toplam Fiyat'][i]}</TOTAL_NET>
     <NOTES1>{df['Po No'][i]}</NOTES1>
     <TC_NET>{df['Toplam Fiyat'][i]}</TC_NET>
-    <RC_XRATE>{df['Dolar Kuru'][i]}</RC_XRATE>
-    <RC_NET>{df['Dolar Toplam'][i]}</RC_NET>
+    <RC_XRATE>{dolar}</RC_XRATE>
+    <RC_NET>{float(df['Toplam Fiyat'][i])/float(dolar)}</RC_NET>
     <PAYMENT_CODE>003</PAYMENT_CODE>
     <CREATED_BY>5</CREATED_BY>
-    <DATE_CREATED>{df['Oluşturulma Tarihi'][i]}</DATE_CREATED>
+    <DATE_CREATED>{date.today().strftime("%d.%m.%Y")}</DATE_CREATED>
     <HOUR_CREATED>14</HOUR_CREATED>
     <MIN_CREATED>15</MIN_CREATED>
     <SEC_CREATED>9</SEC_CREATED>
     <MODIFIED_BY>5</MODIFIED_BY>
-    <DATE_MODIFIED>{df['Oluşturulma Tarihi'][i]}</DATE_MODIFIED>
-    <HOUR_MODIFIED>15</HOUR_MODIFIED>
-    <MIN_MODIFIED>4</MIN_MODIFIED>
-    <SEC_MODIFIED>2</SEC_MODIFIED>
+    <DATE_MODIFIED>{date.today().strftime("%d.%m.%Y")}</DATE_MODIFIED>
+    <HOUR_MODIFIED>14</HOUR_MODIFIED>
+    <MIN_MODIFIED>15</MIN_MODIFIED>
+    <SEC_MODIFIED>10</SEC_MODIFIED>
     <SALESMAN_CODE>{df['Satış Temsilcisi'][i]}</SALESMAN_CODE>
     <CURRSEL_TOTALS>1</CURRSEL_TOTALS>
     <DATA_REFERENCE>0</DATA_REFERENCE>
@@ -52,7 +58,7 @@ for i in df.index:
         <QUANTITY>{df['Miktar'][i]}</QUANTITY>
         <PRICE>{df['Birim Fiyat'][i]}</PRICE>
         <TOTAL>{df['Net Fiyat'][i]}</TOTAL>
-        <RC_XRATE>{df['Dolar Kuru'][i]}</RC_XRATE>
+        <RC_XRATE>{dolar}</RC_XRATE>
         <DESCRIPTION>{df['İş Ortağı Oranı'][i]}</DESCRIPTION>
         <UNIT_CODE>ADET</UNIT_CODE>
         <UNIT_CONV1>1</UNIT_CONV1>
@@ -70,13 +76,13 @@ for i in df.index:
         </CAMPAIGN_INFOS>
         <MULTI_ADD_TAX>0</MULTI_ADD_TAX>
         <EDT_CURR>1</EDT_CURR>
-        <EDT_PRICE>{df['Dolar Toplam'][i]}</EDT_PRICE>
+        <EDT_PRICE>{float(df['Toplam Fiyat'][i])/float(dolar)}</EDT_PRICE>
         <ORGLOGOID></ORGLOGOID>
         <SALEMANCODE>{df['Satış Temsilcisi'][i]}</SALEMANCODE>
         <DEFNFLDSLIST>
         </DEFNFLDSLIST>
-        <MONTH>{df['Ay'][i]}</MONTH>
-        <YEAR>{df['Yıl'][i]}</YEAR>
+        <MONTH>{df['Fatura Tarihi'][i][4:-5]}</MONTH>
+        <YEAR>{df['Fatura Tarihi'][i][6:]}</YEAR>
         <PREACCLINES>
         </PREACCLINES>
         <UNIT_GLOBAL_CODE>NIU</UNIT_GLOBAL_CODE>
@@ -92,15 +98,15 @@ for i in df.index:
     </TRANSACTIONS>
     <PAYMENT_LIST>
       <PAYMENT>
-        <DATE>{df['Vade Tarihi'][i]}</DATE>
+        <DATE></DATE>
         <MODULENR>4</MODULENR>
         <TRCODE>9</TRCODE>
         <TOTAL>{df['Toplam Fiyat'][i]}</TOTAL>
-        <DAYS>{df['Vade Gün'][i]}</DAYS>
+        <DAYS></DAYS>
         <PROCDATE>{df['Fatura Tarihi'][i]}</PROCDATE>
-        <REPORTRATE>{df['Dolar Kuru'][i]}</REPORTRATE>
+        <REPORTRATE>{dolar}</REPORTRATE>
         <DATA_REFERENCE>0</DATA_REFERENCE>
-        <DISCOUNT_DUEDATE>{df['Vade Tarihi'][i]}</DISCOUNT_DUEDATE>
+        <DISCOUNT_DUEDATE></DISCOUNT_DUEDATE>
         <PAY_NO>1</PAY_NO>
         <DISCTRLIST>
         </DISCTRLIST>
@@ -112,7 +118,7 @@ for i in df.index:
       <DEFNFLD>
         <MODULENR>4</MODULENR>
         <PARENTREF></PARENTREF>
-        <NUMFLDS1>{df['Ay'][i]}</NUMFLDS1>
+        <NUMFLDS1>{df['Fatura Tarihi'][i][4:-5]}</NUMFLDS1>
         <NUMFLDS2>{df['Yinelenen'][i]}</NUMFLDS2>
         <NUMFLDS4>{df['Yeni Hizmet'][i]}</NUMFLDS4>
         <NUMFLDS5></NUMFLDS5>	
@@ -130,13 +136,13 @@ for i in df.index:
     <AFFECT_RISK>0</AFFECT_RISK>
     <PREACCLINES>
     </PREACCLINES>
-    <DOC_DATE>{df['Oluşturulma Tarihi'][i]}</DOC_DATE>
+    <DOC_DATE>{df['Fatura Tarihi'][i]}</DOC_DATE>
     <EINVOICE>1</EINVOICE>
     <PROFILE_ID>1</PROFILE_ID>
     <GUID></GUID>
     <EDURATION_TYPE>0</EDURATION_TYPE>
     <EDTCURR_GLOBAL_CODE>USD</EDTCURR_GLOBAL_CODE>
-    <TOTAL_NET_STR>{df['Toplam Fiyat Yazı'][i]}</TOTAL_NET_STR>
+    <TOTAL_NET_STR></TOTAL_NET_STR>
     <SHIPLOC_DEF>{df['Dönem'][i]}</SHIPLOC_DEF>
     <TOTAL_SERVICES>{df['Net Fiyat'][i]}</TOTAL_SERVICES>
     <EXIMVAT>0</EXIMVAT>
