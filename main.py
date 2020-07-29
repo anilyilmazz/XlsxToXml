@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import pandas as pd
-from datetime import date
+from datetime import date, datetime, timedelta
 import requests
 
 xl = pd.ExcelFile("fatura.xlsx")
@@ -8,10 +8,20 @@ df = xl.parse("xml")
 
 xml = ''
 for i in df.index:
-    bill_date = df['Fatura Tarihi'][i].replace(".", "-")  
-    dolarUrl = f"https://evds2.tcmb.gov.tr/service/evds/series=TP.DK.USD.A&startDate={bill_date}&endDate={bill_date}&type=json&key=fTXaeHOQKW"
-    dolar = requests.get(dolarUrl).json()['items'][0]['TP_DK_USD_A']
+    startDate = datetime.strptime(df['Fatura Tarihi'][i], '%d.%m.%Y').date() - timedelta(30)
+    startDate = startDate.strftime("%d-%m-%Y")
 
+    endDate = datetime.strptime(df['Fatura Tarihi'][i], '%d.%m.%Y').date() - timedelta(1)
+    endDate = endDate.strftime("%d-%m-%Y")
+
+    dolarUrl = f"https://evds2.tcmb.gov.tr/service/evds/series=TP.DK.USD.A&startDate={startDate}&endDate={endDate}&type=json&key=fTXaeHOQKW"
+    dolarList = requests.get(dolarUrl).json()
+
+    for j in reversed((dolarList['items'])):
+        if(j['TP_DK_USD_A'] != None):
+          dolar = j['TP_DK_USD_A']
+          break
+             
     xml += f"""  <INVOICE DBOP="INS" >
     <TYPE>9</TYPE>
     <NUMBER></NUMBER>
@@ -31,18 +41,18 @@ for i in df.index:
     <NOTES1>{df['Po No'][i]}</NOTES1>
     <TC_NET>{df['Toplam Fiyat'][i]}</TC_NET>
     <RC_XRATE>{dolar}</RC_XRATE>
-    <RC_NET>{float(df['Toplam Fiyat'][i])/float(dolar)}</RC_NET>
+    <RC_NET>{"{:.5f}".format(float(df['Toplam Fiyat'][i])/float(dolar))}</RC_NET>
     <PAYMENT_CODE>003</PAYMENT_CODE>
-    <CREATED_BY>5</CREATED_BY>
+    <CREATED_BY></CREATED_BY>
     <DATE_CREATED>{date.today().strftime("%d.%m.%Y")}</DATE_CREATED>
     <HOUR_CREATED>14</HOUR_CREATED>
     <MIN_CREATED>15</MIN_CREATED>
     <SEC_CREATED>9</SEC_CREATED>
     <MODIFIED_BY>5</MODIFIED_BY>
-    <DATE_MODIFIED>{date.today().strftime("%d.%m.%Y")}</DATE_MODIFIED>
-    <HOUR_MODIFIED>14</HOUR_MODIFIED>
-    <MIN_MODIFIED>15</MIN_MODIFIED>
-    <SEC_MODIFIED>10</SEC_MODIFIED>
+    <DATE_MODIFIED></DATE_MODIFIED>
+    <HOUR_MODIFIED></HOUR_MODIFIED>
+    <MIN_MODIFIED></MIN_MODIFIED>
+    <SEC_MODIFIED></SEC_MODIFIED>
     <SALESMAN_CODE>{df['Satış Temsilcisi'][i]}</SALESMAN_CODE>
     <CURRSEL_TOTALS>1</CURRSEL_TOTALS>
     <DATA_REFERENCE>0</DATA_REFERENCE>
@@ -76,7 +86,7 @@ for i in df.index:
         </CAMPAIGN_INFOS>
         <MULTI_ADD_TAX>0</MULTI_ADD_TAX>
         <EDT_CURR>1</EDT_CURR>
-        <EDT_PRICE>{float(df['Toplam Fiyat'][i])/float(dolar)}</EDT_PRICE>
+        <EDT_PRICE>{"{:.5f}".format(float(df['Toplam Fiyat'][i])/float(dolar))}</EDT_PRICE>
         <ORGLOGOID></ORGLOGOID>
         <SALEMANCODE>{df['Satış Temsilcisi'][i]}</SALEMANCODE>
         <DEFNFLDSLIST>
