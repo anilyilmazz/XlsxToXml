@@ -43,16 +43,11 @@ for i in df.index:
     <RC_XRATE>{dolar}</RC_XRATE>
     <RC_NET>{"{:.5f}".format(float(df['Toplam Fiyat'][i])/float(dolar))}</RC_NET>
     <PAYMENT_CODE>003</PAYMENT_CODE>
-    <CREATED_BY></CREATED_BY>
+    <CREATED_BY>{df['Ekleyen ID'][i]}</CREATED_BY>
     <DATE_CREATED>{date.today().strftime("%d.%m.%Y")}</DATE_CREATED>
-    <HOUR_CREATED>14</HOUR_CREATED>
-    <MIN_CREATED>15</MIN_CREATED>
-    <SEC_CREATED>9</SEC_CREATED>
-    <MODIFIED_BY>5</MODIFIED_BY>
-    <DATE_MODIFIED></DATE_MODIFIED>
-    <HOUR_MODIFIED></HOUR_MODIFIED>
-    <MIN_MODIFIED></MIN_MODIFIED>
-    <SEC_MODIFIED></SEC_MODIFIED>
+    <HOUR_CREATED>{date.datetime.now().hour}</HOUR_CREATED>
+    <MIN_CREATED>{date.datetime.now().minute}</MIN_CREATED>
+    <SEC_CREATED>{date.datetime.now().second}</SEC_CREATED>
     <SALESMAN_CODE>{df['Satış Temsilcisi'][i]}</SALESMAN_CODE>
     <CURRSEL_TOTALS>1</CURRSEL_TOTALS>
     <DATA_REFERENCE>0</DATA_REFERENCE>
