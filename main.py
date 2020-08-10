@@ -45,9 +45,9 @@ for i in df.index:
     <PAYMENT_CODE>003</PAYMENT_CODE>
     <CREATED_BY>{df['Ekleyen ID'][i]}</CREATED_BY>
     <DATE_CREATED>{date.today().strftime("%d.%m.%Y")}</DATE_CREATED>
-    <HOUR_CREATED>{date.datetime.now().hour}</HOUR_CREATED>
-    <MIN_CREATED>{date.datetime.now().minute}</MIN_CREATED>
-    <SEC_CREATED>{date.datetime.now().second}</SEC_CREATED>
+    <HOUR_CREATED>{datetime.now().strftime("%H")}</HOUR_CREATED>
+    <MIN_CREATED>{datetime.now().strftime("%M")}</MIN_CREATED>
+    <SEC_CREATED>{datetime.now().strftime("%S")}</SEC_CREATED>
     <SALESMAN_CODE>{df['Satış Temsilcisi'][i]}</SALESMAN_CODE>
     <CURRSEL_TOTALS>1</CURRSEL_TOTALS>
     <DATA_REFERENCE>0</DATA_REFERENCE>
@@ -124,8 +124,8 @@ for i in df.index:
         <MODULENR>4</MODULENR>
         <PARENTREF></PARENTREF>
         <NUMFLDS1>{df['Fatura Tarihi'][i][4:-5]}</NUMFLDS1>
-        <NUMFLDS2>{df['Yinelenen'][i]}</NUMFLDS2>
-        <NUMFLDS4>{df['Yeni Hizmet'][i]}</NUMFLDS4>
+        <NUMFLDS2>{df['Yeni Hizmet'][i]}</NUMFLDS2>
+        <NUMFLDS4>{df['Yinelenen'][i]}</NUMFLDS4>
         <NUMFLDS5></NUMFLDS5>	
         <XML_ATTRIBUTE>2</XML_ATTRIBUTE>
         <DATA_REFERENCE>0</DATA_REFERENCE>
@@ -142,7 +142,7 @@ for i in df.index:
     <PREACCLINES>
     </PREACCLINES>
     <DOC_DATE>{df['Fatura Tarihi'][i]}</DOC_DATE>
-    <EINVOICE>1</EINVOICE>
+    <EINVOICE>{df['e fatura/e arşiv'][i]}</EINVOICE>
     <PROFILE_ID>1</PROFILE_ID>
     <GUID></GUID>
     <EDURATION_TYPE>0</EDURATION_TYPE>
