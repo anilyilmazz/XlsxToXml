@@ -46,17 +46,17 @@ for i in df:
             <DELVRY_CODE>{i[1].iloc[k]['Alt Müşteri']}</DELVRY_CODE>
             <QUANTITY>{i[1].iloc[k]['Miktar']}</QUANTITY>
             <PRICE>{i[1].iloc[k]['Birim Fiyat']}</PRICE>
-            <TOTAL>{child_net}</TOTAL>
+            <TOTAL>{"{:.2f}".format(child_net)}</TOTAL>
             <RC_XRATE>{dolar}</RC_XRATE>
             <DESCRIPTION>{i[1].iloc[k]['İş Ortağı Oranı']}</DESCRIPTION>
             <UNIT_CODE>ADET</UNIT_CODE>
             <UNIT_CONV1>1</UNIT_CONV1>
             <UNIT_CONV2>1</UNIT_CONV2>
             <VAT_RATE>{kdv_rate}</VAT_RATE>
-            <VAT_AMOUNT>{child_kdv}</VAT_AMOUNT>
-            <VAT_BASE>{child_net}</VAT_BASE>
+            <VAT_AMOUNT>{"{:.2f}".format(child_kdv)}</VAT_AMOUNT>
+            <VAT_BASE>{"{:.2f}".format(child_net)}</VAT_BASE>
             <BILLED>1</BILLED>
-            <TOTAL_NET>{child_net}</TOTAL_NET>
+            <TOTAL_NET>{"{:.2f}".format(child_net)}</TOTAL_NET>
             <DATA_REFERENCE>0</DATA_REFERENCE>
             <DIST_ORD_REFERENCE>0</DIST_ORD_REFERENCE>
             <CAMPAIGN_INFOS>
@@ -65,7 +65,7 @@ for i in df:
             </CAMPAIGN_INFOS>
             <MULTI_ADD_TAX>0</MULTI_ADD_TAX>
             <EDT_CURR>1</EDT_CURR>
-            <EDT_PRICE>{"{:.5f}".format(child_dolar)}</EDT_PRICE>
+            <EDT_PRICE>{"{:.2f}".format(child_dolar)}</EDT_PRICE>
             <ORGLOGOID></ORGLOGOID>
             <SALEMANCODE>{i[1].iloc[k]['Satış Temsilcisi']}</SALEMANCODE>
             <DEFNFLDSLIST>
@@ -104,14 +104,14 @@ for i in df:
             <GL_CODE>{i[1].iloc[0]['Logo Cari']}</GL_CODE>
             <POST_FLAGS>247</POST_FLAGS>
             <VAT_RATE>{kdv_rate}</VAT_RATE>
-            <TOTAL_DISCOUNTED>{net_fiyat}</TOTAL_DISCOUNTED>
-            <TOTAL_VAT>{kdv_fiyat}</TOTAL_VAT>
-            <TOTAL_GROSS>{net_fiyat}</TOTAL_GROSS>
-            <TOTAL_NET>{toplam_fiyat}</TOTAL_NET>
+            <TOTAL_DISCOUNTED>{"{:.2f}".format(net_fiyat)}</TOTAL_DISCOUNTED>
+            <TOTAL_VAT>{"{:.2f}".format(kdv_fiyat)}</TOTAL_VAT>
+            <TOTAL_GROSS>{"{:.2f}".format(net_fiyat)}</TOTAL_GROSS>
+            <TOTAL_NET>{"{:.2f}".format(toplam_fiyat)}</TOTAL_NET>
             <NOTES1>{i[1].iloc[0]['Po No']}</NOTES1>
-            <TC_NET>{toplam_fiyat}</TC_NET>
+            <TC_NET>{"{:.2f}".format(toplam_fiyat)}</TC_NET>
             <RC_XRATE>{dolar}</RC_XRATE>
-            <RC_NET>{"{:.5f}".format(dolar_fiyat)}</RC_NET>
+            <RC_NET>{"{:.2f}".format(dolar_fiyat)}</RC_NET>
             <PAYMENT_CODE>003</PAYMENT_CODE>
             <CREATED_BY>{i[1].iloc[0]['Ekleyen ID']}</CREATED_BY>
             <DATE_CREATED>{date.today().strftime("%d.%m.%Y")}</DATE_CREATED>
@@ -131,7 +131,7 @@ for i in df:
                     <DATE></DATE>
                     <MODULENR>4</MODULENR>
                     <TRCODE>9</TRCODE>
-                    <TOTAL>{toplam_fiyat}</TOTAL>
+                    <TOTAL>{"{:.2f}".format(toplam_fiyat)}</TOTAL>
                     <DAYS></DAYS>
                     <PROCDATE>{i[1].iloc[0]['Fatura Tarihi']}</PROCDATE>
                     <REPORTRATE>{dolar}</REPORTRATE>
@@ -167,14 +167,14 @@ for i in df:
             <PREACCLINES>
             </PREACCLINES>
             <DOC_DATE>{i[1].iloc[0]['Fatura Tarihi']}</DOC_DATE>
-            <EINVOICE>{i[1].iloc[0]['e fatura/e arşiv']}</EINVOICE>
+            <EINVOICE>{i[1].iloc[0]['Fatura Tipi']}</EINVOICE>
             <PROFILE_ID>1</PROFILE_ID>
             <GUID></GUID>
             <EDURATION_TYPE>0</EDURATION_TYPE>
             <EDTCURR_GLOBAL_CODE>USD</EDTCURR_GLOBAL_CODE>
             <TOTAL_NET_STR></TOTAL_NET_STR>
             <SHIPLOC_DEF>{i[1].iloc[0]['Dönem']}</SHIPLOC_DEF>
-            <TOTAL_SERVICES>{net_fiyat}</TOTAL_SERVICES>
+            <TOTAL_SERVICES>{"{:.2f}".format(net_fiyat)}</TOTAL_SERVICES>
             <EXIMVAT>0</EXIMVAT>
             <EARCHIVEDETR_INTPAYMENTTYPE>0</EARCHIVEDETR_INTPAYMENTTYPE>
             <EBOOK_DOCTYPE>99</EBOOK_DOCTYPE>

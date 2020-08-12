@@ -13,20 +13,20 @@
             <GL_CODE>120.01.001.0069</GL_CODE>
             <POST_FLAGS>247</POST_FLAGS>
             <VAT_RATE>18</VAT_RATE>
-            <TOTAL_DISCOUNTED>40.076</TOTAL_DISCOUNTED>
-            <TOTAL_VAT>7.21368</TOTAL_VAT>
-            <TOTAL_GROSS>40.076</TOTAL_GROSS>
-            <TOTAL_NET>47.28968</TOTAL_NET>
+            <TOTAL_DISCOUNTED>40.08</TOTAL_DISCOUNTED>
+            <TOTAL_VAT>7.21</TOTAL_VAT>
+            <TOTAL_GROSS>40.08</TOTAL_GROSS>
+            <TOTAL_NET>47.29</TOTAL_NET>
             <NOTES1> </NOTES1>
-            <TC_NET>47.28968</TC_NET>
+            <TC_NET>47.29</TC_NET>
             <RC_XRATE>6.9372</RC_XRATE>
-            <RC_NET>6.81683</RC_NET>
+            <RC_NET>6.82</RC_NET>
             <PAYMENT_CODE>003</PAYMENT_CODE>
             <CREATED_BY>5</CREATED_BY>
             <DATE_CREATED>12.08.2020</DATE_CREATED>
-            <HOUR_CREATED>13</HOUR_CREATED>
-            <MIN_CREATED>05</MIN_CREATED>
-            <SEC_CREATED>55</SEC_CREATED>
+            <HOUR_CREATED>14</HOUR_CREATED>
+            <MIN_CREATED>03</MIN_CREATED>
+            <SEC_CREATED>57</SEC_CREATED>
             <SALESMAN_CODE>BEDRÝYE DEVÝRDÝ YILDIZHA</SALESMAN_CODE>
             <CURRSEL_TOTALS>1</CURRSEL_TOTALS>
             <DATA_REFERENCE>0</DATA_REFERENCE>
@@ -49,7 +49,7 @@
             <UNIT_CONV1>1</UNIT_CONV1>
             <UNIT_CONV2>1</UNIT_CONV2>
             <VAT_RATE>18</VAT_RATE>
-            <VAT_AMOUNT>5.0526</VAT_AMOUNT>
+            <VAT_AMOUNT>5.05</VAT_AMOUNT>
             <VAT_BASE>28.07</VAT_BASE>
             <BILLED>1</BILLED>
             <TOTAL_NET>28.07</TOTAL_NET>
@@ -61,7 +61,7 @@
             </CAMPAIGN_INFOS>
             <MULTI_ADD_TAX>0</MULTI_ADD_TAX>
             <EDT_CURR>1</EDT_CURR>
-            <EDT_PRICE>4.77464</EDT_PRICE>
+            <EDT_PRICE>4.77</EDT_PRICE>
             <ORGLOGOID></ORGLOGOID>
             <SALEMANCODE>BEDRÝYE DEVÝRDÝ YILDIZHA</SALEMANCODE>
             <DEFNFLDSLIST>
@@ -89,17 +89,17 @@
             <DELVRY_CODE> </DELVRY_CODE>
             <QUANTITY>138.0</QUANTITY>
             <PRICE>0.087</PRICE>
-            <TOTAL>12.005999999999998</TOTAL>
+            <TOTAL>12.01</TOTAL>
             <RC_XRATE>6.9372</RC_XRATE>
             <DESCRIPTION>0</DESCRIPTION>
             <UNIT_CODE>ADET</UNIT_CODE>
             <UNIT_CONV1>1</UNIT_CONV1>
             <UNIT_CONV2>1</UNIT_CONV2>
             <VAT_RATE>18</VAT_RATE>
-            <VAT_AMOUNT>2.1610799999999997</VAT_AMOUNT>
-            <VAT_BASE>12.005999999999998</VAT_BASE>
+            <VAT_AMOUNT>2.16</VAT_AMOUNT>
+            <VAT_BASE>12.01</VAT_BASE>
             <BILLED>1</BILLED>
-            <TOTAL_NET>12.005999999999998</TOTAL_NET>
+            <TOTAL_NET>12.01</TOTAL_NET>
             <DATA_REFERENCE>0</DATA_REFERENCE>
             <DIST_ORD_REFERENCE>0</DIST_ORD_REFERENCE>
             <CAMPAIGN_INFOS>
@@ -108,7 +108,7 @@
             </CAMPAIGN_INFOS>
             <MULTI_ADD_TAX>0</MULTI_ADD_TAX>
             <EDT_CURR>1</EDT_CURR>
-            <EDT_PRICE>2.04219</EDT_PRICE>
+            <EDT_PRICE>2.04</EDT_PRICE>
             <ORGLOGOID></ORGLOGOID>
             <SALEMANCODE>BEDRÝYE DEVÝRDÝ YILDIZHA</SALEMANCODE>
             <DEFNFLDSLIST>
@@ -134,7 +134,7 @@
                     <DATE></DATE>
                     <MODULENR>4</MODULENR>
                     <TRCODE>9</TRCODE>
-                    <TOTAL>47.28968</TOTAL>
+                    <TOTAL>47.29</TOTAL>
                     <DAYS></DAYS>
                     <PROCDATE>31.07.2020</PROCDATE>
                     <REPORTRATE>6.9372</REPORTRATE>
@@ -177,7 +177,7 @@
             <EDTCURR_GLOBAL_CODE>USD</EDTCURR_GLOBAL_CODE>
             <TOTAL_NET_STR></TOTAL_NET_STR>
             <SHIPLOC_DEF>TEMMUZ DÖNEMÝ</SHIPLOC_DEF>
-            <TOTAL_SERVICES>40.076</TOTAL_SERVICES>
+            <TOTAL_SERVICES>40.08</TOTAL_SERVICES>
             <EXIMVAT>0</EXIMVAT>
             <EARCHIVEDETR_INTPAYMENTTYPE>0</EARCHIVEDETR_INTPAYMENTTYPE>
             <EBOOK_DOCTYPE>99</EBOOK_DOCTYPE>
@@ -199,20 +199,20 @@
             <GL_CODE>120.01.001.0540</GL_CODE>
             <POST_FLAGS>247</POST_FLAGS>
             <VAT_RATE>18</VAT_RATE>
-            <TOTAL_DISCOUNTED>130.0</TOTAL_DISCOUNTED>
-            <TOTAL_VAT>23.400000000000002</TOTAL_VAT>
-            <TOTAL_GROSS>130.0</TOTAL_GROSS>
-            <TOTAL_NET>153.4</TOTAL_NET>
+            <TOTAL_DISCOUNTED>130.00</TOTAL_DISCOUNTED>
+            <TOTAL_VAT>23.40</TOTAL_VAT>
+            <TOTAL_GROSS>130.00</TOTAL_GROSS>
+            <TOTAL_NET>153.40</TOTAL_NET>
             <NOTES1> </NOTES1>
-            <TC_NET>153.4</TC_NET>
+            <TC_NET>153.40</TC_NET>
             <RC_XRATE>6.9372</RC_XRATE>
-            <RC_NET>22.11267</RC_NET>
+            <RC_NET>22.11</RC_NET>
             <PAYMENT_CODE>003</PAYMENT_CODE>
             <CREATED_BY>5</CREATED_BY>
             <DATE_CREATED>12.08.2020</DATE_CREATED>
-            <HOUR_CREATED>13</HOUR_CREATED>
-            <MIN_CREATED>05</MIN_CREATED>
-            <SEC_CREATED>55</SEC_CREATED>
+            <HOUR_CREATED>14</HOUR_CREATED>
+            <MIN_CREATED>03</MIN_CREATED>
+            <SEC_CREATED>57</SEC_CREATED>
             <SALESMAN_CODE>OSMAN AKÇAY</SALESMAN_CODE>
             <CURRSEL_TOTALS>1</CURRSEL_TOTALS>
             <DATA_REFERENCE>0</DATA_REFERENCE>
@@ -228,17 +228,17 @@
             <DELVRY_CODE>MILLENICOM</DELVRY_CODE>
             <QUANTITY>1.0</QUANTITY>
             <PRICE>130.0</PRICE>
-            <TOTAL>130.0</TOTAL>
+            <TOTAL>130.00</TOTAL>
             <RC_XRATE>6.9372</RC_XRATE>
             <DESCRIPTION>0</DESCRIPTION>
             <UNIT_CODE>ADET</UNIT_CODE>
             <UNIT_CONV1>1</UNIT_CONV1>
             <UNIT_CONV2>1</UNIT_CONV2>
             <VAT_RATE>18</VAT_RATE>
-            <VAT_AMOUNT>23.400000000000002</VAT_AMOUNT>
-            <VAT_BASE>130.0</VAT_BASE>
+            <VAT_AMOUNT>23.40</VAT_AMOUNT>
+            <VAT_BASE>130.00</VAT_BASE>
             <BILLED>1</BILLED>
-            <TOTAL_NET>130.0</TOTAL_NET>
+            <TOTAL_NET>130.00</TOTAL_NET>
             <DATA_REFERENCE>0</DATA_REFERENCE>
             <DIST_ORD_REFERENCE>0</DIST_ORD_REFERENCE>
             <CAMPAIGN_INFOS>
@@ -247,7 +247,7 @@
             </CAMPAIGN_INFOS>
             <MULTI_ADD_TAX>0</MULTI_ADD_TAX>
             <EDT_CURR>1</EDT_CURR>
-            <EDT_PRICE>22.11267</EDT_PRICE>
+            <EDT_PRICE>22.11</EDT_PRICE>
             <ORGLOGOID></ORGLOGOID>
             <SALEMANCODE>OSMAN AKÇAY</SALEMANCODE>
             <DEFNFLDSLIST>
@@ -273,7 +273,7 @@
                     <DATE></DATE>
                     <MODULENR>4</MODULENR>
                     <TRCODE>9</TRCODE>
-                    <TOTAL>153.4</TOTAL>
+                    <TOTAL>153.40</TOTAL>
                     <DAYS></DAYS>
                     <PROCDATE>31.07.2020</PROCDATE>
                     <REPORTRATE>6.9372</REPORTRATE>
@@ -316,7 +316,7 @@
             <EDTCURR_GLOBAL_CODE>USD</EDTCURR_GLOBAL_CODE>
             <TOTAL_NET_STR></TOTAL_NET_STR>
             <SHIPLOC_DEF>TEMMUZ DÖNEMÝ</SHIPLOC_DEF>
-            <TOTAL_SERVICES>130.0</TOTAL_SERVICES>
+            <TOTAL_SERVICES>130.00</TOTAL_SERVICES>
             <EXIMVAT>0</EXIMVAT>
             <EARCHIVEDETR_INTPAYMENTTYPE>0</EARCHIVEDETR_INTPAYMENTTYPE>
             <EBOOK_DOCTYPE>99</EBOOK_DOCTYPE>
@@ -338,20 +338,20 @@
             <GL_CODE>120.01.001.0540</GL_CODE>
             <POST_FLAGS>247</POST_FLAGS>
             <VAT_RATE>18</VAT_RATE>
-            <TOTAL_DISCOUNTED>8594.77118</TOTAL_DISCOUNTED>
-            <TOTAL_VAT>1547.0588124</TOTAL_VAT>
-            <TOTAL_GROSS>8594.77118</TOTAL_GROSS>
-            <TOTAL_NET>10141.8299924</TOTAL_NET>
+            <TOTAL_DISCOUNTED>8594.77</TOTAL_DISCOUNTED>
+            <TOTAL_VAT>1547.06</TOTAL_VAT>
+            <TOTAL_GROSS>8594.77</TOTAL_GROSS>
+            <TOTAL_NET>10141.83</TOTAL_NET>
             <NOTES1> </NOTES1>
-            <TC_NET>10141.8299924</TC_NET>
+            <TC_NET>10141.83</TC_NET>
             <RC_XRATE>6.9372</RC_XRATE>
-            <RC_NET>1461.94862</RC_NET>
+            <RC_NET>1461.95</RC_NET>
             <PAYMENT_CODE>003</PAYMENT_CODE>
             <CREATED_BY>5</CREATED_BY>
             <DATE_CREATED>12.08.2020</DATE_CREATED>
-            <HOUR_CREATED>13</HOUR_CREATED>
-            <MIN_CREATED>05</MIN_CREATED>
-            <SEC_CREATED>55</SEC_CREATED>
+            <HOUR_CREATED>14</HOUR_CREATED>
+            <MIN_CREATED>03</MIN_CREATED>
+            <SEC_CREATED>57</SEC_CREATED>
             <SALESMAN_CODE>OSMAN AKÇAY</SALESMAN_CODE>
             <CURRSEL_TOTALS>1</CURRSEL_TOTALS>
             <DATA_REFERENCE>0</DATA_REFERENCE>
@@ -367,17 +367,17 @@
             <DELVRY_CODE>TEKNOFÝX</DELVRY_CODE>
             <QUANTITY>146226.71</QUANTITY>
             <PRICE>0.058</PRICE>
-            <TOTAL>8481.14918</TOTAL>
+            <TOTAL>8481.15</TOTAL>
             <RC_XRATE>6.9372</RC_XRATE>
             <DESCRIPTION>0</DESCRIPTION>
             <UNIT_CODE>ADET</UNIT_CODE>
             <UNIT_CONV1>1</UNIT_CONV1>
             <UNIT_CONV2>1</UNIT_CONV2>
             <VAT_RATE>18</VAT_RATE>
-            <VAT_AMOUNT>1526.6068524</VAT_AMOUNT>
-            <VAT_BASE>8481.14918</VAT_BASE>
+            <VAT_AMOUNT>1526.61</VAT_AMOUNT>
+            <VAT_BASE>8481.15</VAT_BASE>
             <BILLED>1</BILLED>
-            <TOTAL_NET>8481.14918</TOTAL_NET>
+            <TOTAL_NET>8481.15</TOTAL_NET>
             <DATA_REFERENCE>0</DATA_REFERENCE>
             <DIST_ORD_REFERENCE>0</DIST_ORD_REFERENCE>
             <CAMPAIGN_INFOS>
@@ -386,7 +386,7 @@
             </CAMPAIGN_INFOS>
             <MULTI_ADD_TAX>0</MULTI_ADD_TAX>
             <EDT_CURR>1</EDT_CURR>
-            <EDT_PRICE>1442.62181</EDT_PRICE>
+            <EDT_PRICE>1442.62</EDT_PRICE>
             <ORGLOGOID></ORGLOGOID>
             <SALEMANCODE>OSMAN AKÇAY</SALEMANCODE>
             <DEFNFLDSLIST>
@@ -414,17 +414,17 @@
             <DELVRY_CODE>TEKNOFÝX</DELVRY_CODE>
             <QUANTITY>1306.0</QUANTITY>
             <PRICE>0.087</PRICE>
-            <TOTAL>113.62199999999999</TOTAL>
+            <TOTAL>113.62</TOTAL>
             <RC_XRATE>6.9372</RC_XRATE>
             <DESCRIPTION>0</DESCRIPTION>
             <UNIT_CODE>ADET</UNIT_CODE>
             <UNIT_CONV1>1</UNIT_CONV1>
             <UNIT_CONV2>1</UNIT_CONV2>
             <VAT_RATE>18</VAT_RATE>
-            <VAT_AMOUNT>20.451959999999996</VAT_AMOUNT>
-            <VAT_BASE>113.62199999999999</VAT_BASE>
+            <VAT_AMOUNT>20.45</VAT_AMOUNT>
+            <VAT_BASE>113.62</VAT_BASE>
             <BILLED>1</BILLED>
-            <TOTAL_NET>113.62199999999999</TOTAL_NET>
+            <TOTAL_NET>113.62</TOTAL_NET>
             <DATA_REFERENCE>0</DATA_REFERENCE>
             <DIST_ORD_REFERENCE>0</DIST_ORD_REFERENCE>
             <CAMPAIGN_INFOS>
@@ -433,7 +433,7 @@
             </CAMPAIGN_INFOS>
             <MULTI_ADD_TAX>0</MULTI_ADD_TAX>
             <EDT_CURR>1</EDT_CURR>
-            <EDT_PRICE>19.32681</EDT_PRICE>
+            <EDT_PRICE>19.33</EDT_PRICE>
             <ORGLOGOID></ORGLOGOID>
             <SALEMANCODE>OSMAN AKÇAY</SALEMANCODE>
             <DEFNFLDSLIST>
@@ -459,7 +459,7 @@
                     <DATE></DATE>
                     <MODULENR>4</MODULENR>
                     <TRCODE>9</TRCODE>
-                    <TOTAL>10141.8299924</TOTAL>
+                    <TOTAL>10141.83</TOTAL>
                     <DAYS></DAYS>
                     <PROCDATE>31.07.2020</PROCDATE>
                     <REPORTRATE>6.9372</REPORTRATE>
@@ -502,7 +502,7 @@
             <EDTCURR_GLOBAL_CODE>USD</EDTCURR_GLOBAL_CODE>
             <TOTAL_NET_STR></TOTAL_NET_STR>
             <SHIPLOC_DEF>TEMMUZ DÖNEMÝ</SHIPLOC_DEF>
-            <TOTAL_SERVICES>8594.77118</TOTAL_SERVICES>
+            <TOTAL_SERVICES>8594.77</TOTAL_SERVICES>
             <EXIMVAT>0</EXIMVAT>
             <EARCHIVEDETR_INTPAYMENTTYPE>0</EARCHIVEDETR_INTPAYMENTTYPE>
             <EBOOK_DOCTYPE>99</EBOOK_DOCTYPE>
