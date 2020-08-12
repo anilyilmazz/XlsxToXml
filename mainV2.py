@@ -3,6 +3,8 @@ import pandas as pd
 from datetime import date, datetime, timedelta
 import requests
 
+kdv_rate = 18
+
 df = pd.read_excel('fatura.xlsx', sheet_name='xml')
 df = df.groupby(by=["Logo Cari", "Alt Müşteri"])
 
@@ -20,7 +22,7 @@ for i in df:
 
     for m in reversed((dolarList['items'])):
         if(m['TP_DK_USD_A'] != None):
-          dolar = m['TP_DK_USD_A']
+          dolar = float(m['TP_DK_USD_A'])
           break
 
     k = 0
@@ -30,6 +32,11 @@ for i in df:
     toplam_fiyat = 0
     dolar_fiyat = 0   
     for j in i[1].index:
+        child_net = float(i[1].iloc[k]['Miktar'])*float(i[1].iloc[k]['Birim Fiyat'])
+        child_kdv = child_net/100*18
+        child_toplam = child_net + child_kdv
+        child_dolar = child_toplam / dolar
+
         transaction += f""" 
         <TRANSACTION>
             <TYPE>4</TYPE>
@@ -39,17 +46,17 @@ for i in df:
             <DELVRY_CODE>{i[1].iloc[k]['Alt Müşteri']}</DELVRY_CODE>
             <QUANTITY>{i[1].iloc[k]['Miktar']}</QUANTITY>
             <PRICE>{i[1].iloc[k]['Birim Fiyat']}</PRICE>
-            <TOTAL>{i[1].iloc[k]['Net Fiyat']}</TOTAL>
+            <TOTAL>{child_net}</TOTAL>
             <RC_XRATE>{dolar}</RC_XRATE>
             <DESCRIPTION>{i[1].iloc[k]['İş Ortağı Oranı']}</DESCRIPTION>
             <UNIT_CODE>ADET</UNIT_CODE>
             <UNIT_CONV1>1</UNIT_CONV1>
             <UNIT_CONV2>1</UNIT_CONV2>
-            <VAT_RATE>{i[1].iloc[k]['KDV Oranı']}</VAT_RATE>
-            <VAT_AMOUNT>{i[1].iloc[k]['KDV Fiyat']}</VAT_AMOUNT>
-            <VAT_BASE>{i[1].iloc[k]['Net Fiyat']}</VAT_BASE>
+            <VAT_RATE>{kdv_rate}</VAT_RATE>
+            <VAT_AMOUNT>{child_kdv}</VAT_AMOUNT>
+            <VAT_BASE>{child_net}</VAT_BASE>
             <BILLED>1</BILLED>
-            <TOTAL_NET>{i[1].iloc[k]['Net Fiyat']}</TOTAL_NET>
+            <TOTAL_NET>{child_net}</TOTAL_NET>
             <DATA_REFERENCE>0</DATA_REFERENCE>
             <DIST_ORD_REFERENCE>0</DIST_ORD_REFERENCE>
             <CAMPAIGN_INFOS>
@@ -58,7 +65,7 @@ for i in df:
             </CAMPAIGN_INFOS>
             <MULTI_ADD_TAX>0</MULTI_ADD_TAX>
             <EDT_CURR>1</EDT_CURR>
-            <EDT_PRICE>{"{:.5f}".format(float(i[1].iloc[k]['Toplam Fiyat'])/float(dolar))}</EDT_PRICE>
+            <EDT_PRICE>{"{:.5f}".format(child_dolar)}</EDT_PRICE>
             <ORGLOGOID></ORGLOGOID>
             <SALEMANCODE>{i[1].iloc[k]['Satış Temsilcisi']}</SALEMANCODE>
             <DEFNFLDSLIST>
@@ -78,10 +85,10 @@ for i in df:
             <FUTURE_MONTH_BEGDATE>132384519</FUTURE_MONTH_BEGDATE>
         </TRANSACTION>
         """
-        net_fiyat += float(i[1].iloc[k]['Net Fiyat'])
-        kdv_fiyat += float(i[1].iloc[k]['KDV Fiyat'])
-        toplam_fiyat += float(i[1].iloc[k]['Toplam Fiyat'])
-        dolar_fiyat += float(i[1].iloc[k]['Toplam Fiyat'])/float(dolar)
+        net_fiyat += child_net
+        kdv_fiyat += child_kdv
+        toplam_fiyat += child_toplam
+        dolar_fiyat += child_dolar
         k += 1
              
     bill += f""" 
@@ -96,7 +103,7 @@ for i in df:
             <SHIPLOC_CODE>007</SHIPLOC_CODE>
             <GL_CODE>{i[1].iloc[0]['Logo Cari']}</GL_CODE>
             <POST_FLAGS>247</POST_FLAGS>
-            <VAT_RATE>{i[1].iloc[0]['KDV Oranı']}</VAT_RATE>
+            <VAT_RATE>{kdv_rate}</VAT_RATE>
             <TOTAL_DISCOUNTED>{net_fiyat}</TOTAL_DISCOUNTED>
             <TOTAL_VAT>{kdv_fiyat}</TOTAL_VAT>
             <TOTAL_GROSS>{net_fiyat}</TOTAL_GROSS>
