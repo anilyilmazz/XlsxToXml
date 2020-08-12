@@ -24,9 +24,12 @@ for i in df:
           break
 
     k = 0
-    transaction = ""      
+    transaction = ""
+    net_fiyat = 0
+    kdv_fiyat = 0
+    toplam_fiyat = 0
+    dolar_fiyat = 0   
     for j in i[1].index:
-        #print(i[1].iloc[k]['Toplam Fiyat']) 
         transaction += f""" 
         <TRANSACTION>
             <TYPE>4</TYPE>
@@ -75,8 +78,12 @@ for i in df:
             <FUTURE_MONTH_BEGDATE>132384519</FUTURE_MONTH_BEGDATE>
         </TRANSACTION>
         """
+        net_fiyat += float(i[1].iloc[k]['Net Fiyat'])
+        kdv_fiyat += float(i[1].iloc[k]['KDV Fiyat'])
+        toplam_fiyat += float(i[1].iloc[k]['Toplam Fiyat'])
+        dolar_fiyat += float(i[1].iloc[k]['Toplam Fiyat'])/float(dolar)
         k += 1
-    
+             
     bill += f""" 
         <INVOICE DBOP="INS" >
             <TYPE>9</TYPE>
@@ -90,14 +97,14 @@ for i in df:
             <GL_CODE>{i[1].iloc[0]['Logo Cari']}</GL_CODE>
             <POST_FLAGS>247</POST_FLAGS>
             <VAT_RATE>{i[1].iloc[0]['KDV Oranı']}</VAT_RATE>
-            <TOTAL_DISCOUNTED>{i[1].iloc[0]['Net Fiyat']}</TOTAL_DISCOUNTED>
-            <TOTAL_VAT>{i[1].iloc[0]['KDV Fiyat']}</TOTAL_VAT>
-            <TOTAL_GROSS>{i[1].iloc[0]['Net Fiyat']}</TOTAL_GROSS>
-            <TOTAL_NET>{i[1].iloc[0]['Toplam Fiyat']}</TOTAL_NET>
+            <TOTAL_DISCOUNTED>{net_fiyat}</TOTAL_DISCOUNTED>
+            <TOTAL_VAT>{kdv_fiyat}</TOTAL_VAT>
+            <TOTAL_GROSS>{net_fiyat}</TOTAL_GROSS>
+            <TOTAL_NET>{toplam_fiyat}</TOTAL_NET>
             <NOTES1>{i[1].iloc[0]['Po No']}</NOTES1>
-            <TC_NET>{i[1].iloc[0]['Toplam Fiyat']}</TC_NET>
+            <TC_NET>{toplam_fiyat}</TC_NET>
             <RC_XRATE>{dolar}</RC_XRATE>
-            <RC_NET>{"{:.5f}".format(float(i[1].iloc[0]['Toplam Fiyat'])/float(dolar))}</RC_NET>
+            <RC_NET>{"{:.5f}".format(dolar_fiyat)}</RC_NET>
             <PAYMENT_CODE>003</PAYMENT_CODE>
             <CREATED_BY>{i[1].iloc[0]['Ekleyen ID']}</CREATED_BY>
             <DATE_CREATED>{date.today().strftime("%d.%m.%Y")}</DATE_CREATED>
@@ -117,7 +124,7 @@ for i in df:
                     <DATE></DATE>
                     <MODULENR>4</MODULENR>
                     <TRCODE>9</TRCODE>
-                    <TOTAL>{i[1].iloc[0]['Toplam Fiyat']}</TOTAL>
+                    <TOTAL>{toplam_fiyat}</TOTAL>
                     <DAYS></DAYS>
                     <PROCDATE>{i[1].iloc[0]['Fatura Tarihi']}</PROCDATE>
                     <REPORTRATE>{dolar}</REPORTRATE>
@@ -160,7 +167,7 @@ for i in df:
             <EDTCURR_GLOBAL_CODE>USD</EDTCURR_GLOBAL_CODE>
             <TOTAL_NET_STR></TOTAL_NET_STR>
             <SHIPLOC_DEF>{i[1].iloc[0]['Dönem']}</SHIPLOC_DEF>
-            <TOTAL_SERVICES>{i[1].iloc[0]['Net Fiyat']}</TOTAL_SERVICES>
+            <TOTAL_SERVICES>{net_fiyat}</TOTAL_SERVICES>
             <EXIMVAT>0</EXIMVAT>
             <EARCHIVEDETR_INTPAYMENTTYPE>0</EARCHIVEDETR_INTPAYMENTTYPE>
             <EBOOK_DOCTYPE>99</EBOOK_DOCTYPE>
