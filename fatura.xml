@@ -24,9 +24,9 @@
             <PAYMENT_CODE>003</PAYMENT_CODE>
             <CREATED_BY>5</CREATED_BY>
             <DATE_CREATED>20.08.2020</DATE_CREATED>
-            <HOUR_CREATED>13</HOUR_CREATED>
-            <MIN_CREATED>21</MIN_CREATED>
-            <SEC_CREATED>26</SEC_CREATED>
+            <HOUR_CREATED>14</HOUR_CREATED>
+            <MIN_CREATED>01</MIN_CREATED>
+            <SEC_CREATED>04</SEC_CREATED>
             <SALESMAN_CODE>BEDRÝYE DEVÝRDÝ YILDIZHA</SALESMAN_CODE>
             <CURRSEL_TOTALS>1</CURRSEL_TOTALS>
             <DATA_REFERENCE>0</DATA_REFERENCE>
@@ -66,7 +66,7 @@
             <SALEMANCODE>BEDRÝYE DEVÝRDÝ YILDIZHA</SALEMANCODE>
             <DEFNFLDSLIST>
             </DEFNFLDSLIST>
-            <MONTH>8</MONTH>
+            <MONTH>7</MONTH>
             <YEAR>2020</YEAR>
             <PREACCLINES>
             </PREACCLINES>
@@ -113,7 +113,7 @@
             <SALEMANCODE>BEDRÝYE DEVÝRDÝ YILDIZHA</SALEMANCODE>
             <DEFNFLDSLIST>
             </DEFNFLDSLIST>
-            <MONTH>8</MONTH>
+            <MONTH>7</MONTH>
             <YEAR>2020</YEAR>
             <PREACCLINES>
             </PREACCLINES>
@@ -210,9 +210,9 @@
             <PAYMENT_CODE>003</PAYMENT_CODE>
             <CREATED_BY>5</CREATED_BY>
             <DATE_CREATED>20.08.2020</DATE_CREATED>
-            <HOUR_CREATED>13</HOUR_CREATED>
-            <MIN_CREATED>21</MIN_CREATED>
-            <SEC_CREATED>26</SEC_CREATED>
+            <HOUR_CREATED>14</HOUR_CREATED>
+            <MIN_CREATED>01</MIN_CREATED>
+            <SEC_CREATED>05</SEC_CREATED>
             <SALESMAN_CODE>OSMAN AKÇAY</SALESMAN_CODE>
             <CURRSEL_TOTALS>1</CURRSEL_TOTALS>
             <DATA_REFERENCE>0</DATA_REFERENCE>
@@ -252,7 +252,7 @@
             <SALEMANCODE>OSMAN AKÇAY</SALEMANCODE>
             <DEFNFLDSLIST>
             </DEFNFLDSLIST>
-            <MONTH>8</MONTH>
+            <MONTH>7</MONTH>
             <YEAR>2020</YEAR>
             <PREACCLINES>
             </PREACCLINES>
@@ -299,7 +299,7 @@
             <SALEMANCODE>OSMAN AKÇAY</SALEMANCODE>
             <DEFNFLDSLIST>
             </DEFNFLDSLIST>
-            <MONTH>8</MONTH>
+            <MONTH>7</MONTH>
             <YEAR>2020</YEAR>
             <PREACCLINES>
             </PREACCLINES>

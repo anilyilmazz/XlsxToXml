@@ -2,6 +2,7 @@
 import pandas as pd
 from datetime import date, datetime, timedelta
 import requests
+import locallib
 
 kdv_rate = 18
 
@@ -70,7 +71,7 @@ for i in df:
             <SALEMANCODE>{i[1].iloc[k]['Satış Temsilcisi']}</SALEMANCODE>
             <DEFNFLDSLIST>
             </DEFNFLDSLIST>
-            <MONTH>{i[1].iloc[k]['Fatura Tarihi'][4:-5]}</MONTH>
+            <MONTH>{locallib.monthToNum(i[1].iloc[0]['Dönem'])}</MONTH>
             <YEAR>{i[1].iloc[k]['Fatura Tarihi'][6:]}</YEAR>
             <PREACCLINES>
             </PREACCLINES>
