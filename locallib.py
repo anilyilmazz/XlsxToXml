@@ -2,16 +2,16 @@
 
 def monthToNum(shortMonth):
     return {
-            'OCAK DÖNEMİ' : 1,
-            'ŞUBAT DÖNEMİ' : 2,
-            'MART DÖNEMİ' : 3,
-            'NİSAN DÖNEMİ' : 4,
-            'MAYIS DÖNEMİ' : 5,
-            'HAZİRAN DÖNEMİ' : 6,
-            'TEMMUZ DÖNEMİ' : 7,
-            'AĞUTOS DÖNEMİ' : 8,
-            'EYLÜL DÖNEMİ' : 9, 
-            'EKİM DÖNEMİ' : 10,
-            'KASIM DÖNEMİ' : 11,
-            'ARALIK DÖNEMİ' : 12
+            'OCAK DÖNEMİ' : '01',
+            'ŞUBAT DÖNEMİ' : '02',
+            'MART DÖNEMİ' : '03',
+            'NİSAN DÖNEMİ' : '04',
+            'MAYIS DÖNEMİ' : '05',
+            'HAZİRAN DÖNEMİ' : '06',
+            'TEMMUZ DÖNEMİ' : '07',
+            'AĞUSTOS DÖNEMİ' : '08',
+            'EYLÜL DÖNEMİ' : '09', 
+            'EKİM DÖNEMİ' : '10',
+            'KASIM DÖNEMİ' : '11',
+            'ARALIK DÖNEMİ' : '12'
     }[shortMonth]

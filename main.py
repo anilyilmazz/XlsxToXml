@@ -71,7 +71,7 @@ for i in df:
             <SALEMANCODE>{i[1].iloc[k]['Satış Temsilcisi']}</SALEMANCODE>
             <DEFNFLDSLIST>
             </DEFNFLDSLIST>
-            <MONTH>{locallib.monthToNum(i[1].iloc[0]['Dönem'])}</MONTH>
+            <MONTH>{locallib.monthToNum(i[1].iloc[0]['Dönem']).replace('0', '')}</MONTH>
             <YEAR>{i[1].iloc[k]['Fatura Tarihi'][6:]}</YEAR>
             <PREACCLINES>
             </PREACCLINES>
@@ -101,7 +101,7 @@ for i in df:
             <AUXIL_CODE>BSTB035114</AUXIL_CODE>
             <AUTH_CODE>{i[1].iloc[0]['Alt Müşteri']}</AUTH_CODE> 
             <ARP_CODE>{i[1].iloc[0]['Logo Cari']}</ARP_CODE>
-            <SHIPLOC_CODE>007</SHIPLOC_CODE>
+            <SHIPLOC_CODE>0{locallib.monthToNum(i[1].iloc[0]['Dönem'])}</SHIPLOC_CODE>
             <GL_CODE>{i[1].iloc[0]['Logo Cari']}</GL_CODE>
             <POST_FLAGS>247</POST_FLAGS>
             <VAT_RATE>{kdv_rate}</VAT_RATE>
