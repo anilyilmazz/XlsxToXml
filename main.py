@@ -71,7 +71,7 @@ for i in df:
             <SALEMANCODE>{i[1].iloc[k]['Satış Temsilcisi']}</SALEMANCODE>
             <DEFNFLDSLIST>
             </DEFNFLDSLIST>
-            <MONTH>{locallib.monthToNum(i[1].iloc[0]['Dönem']).replace('0', '')}</MONTH>
+            <MONTH>{locallib.monthToNum(i[1].iloc[0]['Dönem'])}</MONTH>
             <YEAR>{i[1].iloc[k]['Fatura Tarihi'][6:]}</YEAR>
             <PREACCLINES>
             </PREACCLINES>
@@ -113,7 +113,7 @@ for i in df:
             <TC_NET>{"{:.2f}".format(toplam_fiyat)}</TC_NET>
             <RC_XRATE>{dolar}</RC_XRATE>
             <RC_NET>{"{:.2f}".format(dolar_fiyat)}</RC_NET>
-            <PAYMENT_CODE>003</PAYMENT_CODE>
+            <PAYMENT_CODE>{i[1].iloc[0]['Vade']}</PAYMENT_CODE>
             <CREATED_BY>{i[1].iloc[0]['Ekleyen ID']}</CREATED_BY>
             <DATE_CREATED>{date.today().strftime("%d.%m.%Y")}</DATE_CREATED>
             <HOUR_CREATED>{datetime.now().strftime("%H")}</HOUR_CREATED>
