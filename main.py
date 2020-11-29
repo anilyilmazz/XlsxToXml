@@ -21,7 +21,7 @@ for i in df:
     dolarUrl = f"https://evds2.tcmb.gov.tr/service/evds/series=TP.DK.USD.A&startDate={startDate}&endDate={endDate}&type=json&key=fTXaeHOQKW"
     dolarList = requests.get(dolarUrl).json()
 
-    paymentDate = datetime.strptime(i[1].iloc[0]['Fatura Tarihi'], '%d.%m.%Y').date() + timedelta(int(locallib.getDateByCode(i[1].iloc[0]['Vade'])))
+    paymentDate = datetime.strptime(i[1].iloc[0]['Fatura Tarihi'], '%d.%m.%Y').date() + timedelta(locallib.getDateByCode(i[1].iloc[0]['Vade']))
 
     for m in reversed((dolarList['items'])):
         if(m['TP_DK_USD_A'] != None):
