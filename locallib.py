@@ -15,3 +15,12 @@ def monthToNum(shortMonth):
             'KASIM DÖNEMİ' : '11',
             'ARALIK DÖNEMİ' : '12'
     }[shortMonth]
+
+def getDateByCode(paymentCode):
+    return {
+            2 : '7',
+            3 : '15',
+            4 : '30',
+            5 : '45',
+            13 : '60',
+    }[paymentCode]

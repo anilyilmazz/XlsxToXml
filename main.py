@@ -21,6 +21,8 @@ for i in df:
     dolarUrl = f"https://evds2.tcmb.gov.tr/service/evds/series=TP.DK.USD.A&startDate={startDate}&endDate={endDate}&type=json&key=fTXaeHOQKW"
     dolarList = requests.get(dolarUrl).json()
 
+    paymentDate = datetime.strptime(i[1].iloc[0]['Fatura Tarihi'], '%d.%m.%Y').date() + timedelta(int(locallib.getDateByCode(i[1].iloc[0]['Vade'])))
+
     for m in reversed((dolarList['items'])):
         if(m['TP_DK_USD_A'] != None):
           dolar = float(m['TP_DK_USD_A'])
@@ -31,7 +33,8 @@ for i in df:
     net_fiyat = 0
     kdv_fiyat = 0
     toplam_fiyat = 0
-    dolar_fiyat = 0   
+    dolar_fiyat = 0 
+    
     for j in i[1].index:
         child_net = float(i[1].iloc[k]['Miktar'])*float(i[1].iloc[k]['Birim Fiyat'])
         child_kdv = child_net/100*18
@@ -91,7 +94,7 @@ for i in df:
         toplam_fiyat += child_toplam
         dolar_fiyat += child_dolar
         k += 1
-             
+
     bill += f""" 
         <INVOICE DBOP="INS" >
             <TYPE>9</TYPE>
@@ -113,7 +116,7 @@ for i in df:
             <TC_NET>{"{:.2f}".format(toplam_fiyat)}</TC_NET>
             <RC_XRATE>{dolar}</RC_XRATE>
             <RC_NET>{"{:.2f}".format(dolar_fiyat)}</RC_NET>
-            <PAYMENT_CODE>{i[1].iloc[0]['Vade']}</PAYMENT_CODE>
+            <PAYMENT_CODE>00{i[1].iloc[0]['Vade']}</PAYMENT_CODE>
             <CREATED_BY>{i[1].iloc[0]['Ekleyen ID']}</CREATED_BY>
             <DATE_CREATED>{date.today().strftime("%d.%m.%Y")}</DATE_CREATED>
             <HOUR_CREATED>{datetime.now().strftime("%H")}</HOUR_CREATED>
@@ -129,15 +132,15 @@ for i in df:
             </TRANSACTIONS>
             <PAYMENT_LIST>
                 <PAYMENT>
-                    <DATE></DATE>
+                    <DATE>{paymentDate.strftime("%d.%m.%Y")}</DATE>
                     <MODULENR>4</MODULENR>
                     <TRCODE>9</TRCODE>
                     <TOTAL>{"{:.2f}".format(toplam_fiyat)}</TOTAL>
-                    <DAYS></DAYS>
+                    <DAYS>{locallib.getDateByCode(i[1].iloc[0]['Vade'])}</DAYS>
                     <PROCDATE>{i[1].iloc[0]['Fatura Tarihi']}</PROCDATE>
                     <REPORTRATE>{dolar}</REPORTRATE>
                     <DATA_REFERENCE>0</DATA_REFERENCE>
-                    <DISCOUNT_DUEDATE></DISCOUNT_DUEDATE>
+                    <DISCOUNT_DUEDATE>{paymentDate.strftime("%d.%m.%Y")}</DISCOUNT_DUEDATE>
                     <PAY_NO>1</PAY_NO>
                     <DISCTRLIST>
                     </DISCTRLIST>
@@ -149,7 +152,7 @@ for i in df:
             <DEFNFLD>
                 <MODULENR>4</MODULENR>
                 <PARENTREF></PARENTREF>
-                <NUMFLDS1>{i[1].iloc[0]['Fatura Tarihi'][4:-5]}</NUMFLDS1>
+                <NUMFLDS1>{i[1].iloc[0]['Fatura Tarihi'][3:-5]}</NUMFLDS1> 
                 <NUMFLDS2>{i[1].iloc[0]['Yeni Hizmet']}</NUMFLDS2>
                 <NUMFLDS4>{i[1].iloc[0]['Yinelenen']}</NUMFLDS4>
                 <NUMFLDS5></NUMFLDS5>	
