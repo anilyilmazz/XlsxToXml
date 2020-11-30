@@ -116,7 +116,7 @@ for i in df:
             <TC_NET>{"{:.2f}".format(toplam_fiyat)}</TC_NET>
             <RC_XRATE>{dolar}</RC_XRATE>
             <RC_NET>{"{:.2f}".format(dolar_fiyat)}</RC_NET>
-            <PAYMENT_CODE>00{i[1].iloc[0]['Vade']}</PAYMENT_CODE>
+            <PAYMENT_CODE>{i[1].iloc[0]['Vade']}</PAYMENT_CODE>
             <CREATED_BY>{i[1].iloc[0]['Ekleyen ID']}</CREATED_BY>
             <DATE_CREATED>{date.today().strftime("%d.%m.%Y")}</DATE_CREATED>
             <HOUR_CREATED>{datetime.now().strftime("%H")}</HOUR_CREATED>
