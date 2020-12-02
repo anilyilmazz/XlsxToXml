@@ -23,4 +23,5 @@ def getDateByCode(paymentCode):
             4 : 30,
             5 : 45,
             13 : 60,
+            14: 90
     }[paymentCode]

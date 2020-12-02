@@ -7,11 +7,16 @@ import locallib
 kdv_rate = 18
 
 df = pd.read_excel('fatura.xlsx', sheet_name='xml')
+print(f"{len(df)} Satır")
 df = df.groupby(by=["Logo Cari", "Alt Müşteri"])
+print(f"{len(df)} Fatura")
 
 xml = ""
 bill = ""
+count = 0
 for i in df:
+    count += 1  
+    print(f"{count}. Fatura")
     startDate = datetime.strptime(i[1].iloc[0]['Fatura Tarihi'], '%d.%m.%Y').date() - timedelta(30)
     startDate = startDate.strftime("%d-%m-%Y")
 
@@ -187,7 +192,7 @@ for i in df:
             </OKCINFO>
             </OKCINFO_LIST>
         </INVOICE>
-        """
+        """  
 
 xml = f"""<?xml version="1.0" encoding="ISO-8859-9"?>
 <SALES_INVOICES>
